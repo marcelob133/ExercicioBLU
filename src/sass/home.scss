@@ -1,0 +1,157 @@
+//SASS VARIABLES===================
+$lower: lowercase;
+@mixin starTitle {
+    font-family: star_title, sans-serif;
+    text-transform: $lower;
+    letter-spacing: 2px;
+}
+@mixin starNormal($case){
+    @if ($case == "lowercase") {
+        font-family: star_font, sans-serif;
+        text-transform: $case;
+        letter-spacing: 2px;
+    } @else {
+        font-family: star_font, sans-serif;
+        letter-spacing: 2px;
+    }
+}
+
+//FORM CONTENT=====================
+.home__form {
+    text-align: center;
+    width: calc(80% - 10px);
+    margin-bottom: 30px;
+    .not-valid{
+        border: 2px solid red;
+    }
+    fieldset{
+        border-radius: 10px;
+        border: 5px solid yellow;
+        background-color: #fbfbfb2e;
+        box-shadow: 0px 0px 0px 5px #000000, 0px 0px 0px 10px yellow;
+        padding-bottom: 5px;
+        legend{
+            @include starNormal("");
+            color: black;
+            font-weight: bold;
+            font-size: 20px;
+            position: relative;
+            bottom: 5px;
+            padding: 10px;
+            background: white;
+            border-radius: 25px;
+            border: 5px solid yellow;
+        }
+        span{
+            color: red;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        label{
+            @include starNormal(lowercase);
+            color: yellow;
+        }
+        input{
+            border: 4px solid black;
+            background-color: #ccca55;
+            border-radius: 12px;
+            @include starNormal("case");
+            margin: 0 100px 5px 100px;
+            width: calc(100% - 200px);
+        }
+        input:active, input:focus{
+            font-family: 'Open Sans', sans-serif;
+            background-color: white;
+            color:blue;
+            font-weight: bold;
+        }
+        p{
+            @include starNormal("");
+            margin: 0;
+            font-size: 13px;
+            height: 20px;
+            color: red;
+        }
+        .alertMessage{
+            @include starNormal("");
+            text-align: left;
+            height: 20px;
+            color: red;
+            margin: 0;
+            margin-left: 110px;
+
+        }
+        .advise{
+            span{
+                display: inline-block;
+            }
+            p{
+                @include starNormal("");
+                display: inline-block;
+                margin-left: 10px;
+                color: white;
+                font-weight: bold;
+                font-size: 19px;
+            }
+        }
+    }
+} 
+//=================================
+//SUBMIT BUTTON====================
+.button--submit{
+    @include starNormal("");
+    font-size: 10px; 
+    background: #ccca55;
+    color: black;
+    font-size: 17px;
+    border: none;
+    outline: none;
+    margin: 5px 0 15px;
+    padding: 10px;
+    padding-left: 20px;
+    cursor: pointer;
+    position: relative;
+    transition: 0.5s;
+    transform: translate(-200px);
+    opacity: 0;
+
+    &:before {
+        content: "";
+        position: absolute;
+        right: -20px;
+        bottom: 0;
+        width: 0;
+        height: 0;
+        border-left: 20px solid #ccca55;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        transition: 0.5s;
+    }
+
+    &.show {
+        transform: translate(0);
+        opacity: 1;
+    }
+
+    &.hide {
+        transform: translate(200px);
+        opacity: 0;
+    }
+}
+
+.button--submit:hover{
+    background-color: black;
+    color: #ccca55;
+}
+.button--submit:hover:before{
+    border-left-color: #000000;
+}
+//=================================
+//ADJUSTEMENTS FOR MOBILE DISPLAY
+@media (max-width: 768px) {
+    .home__form fieldset input{
+        width: 100%;
+        font-size: 9px;
+        margin: 0;
+    }
+}
