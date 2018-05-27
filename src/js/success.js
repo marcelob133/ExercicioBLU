@@ -13,13 +13,13 @@ $(function () {
     //GETTING DATA FROM API========================
     fetch(mentorPlanet)
     .then((resp) => resp.json())
-        .then((response)  => {var planet = response.name})
-        .catch(err => $('#mentor-planet').html("não foi obtido o planeta."));
+    .then((response)  => {
+        if(response.name == "unknown"){
+            $('#mentor-planet').html("não catalogado.");
+        }else{
+            $('#mentor-planet').html(response.name);
+        }
+    })
+    .catch(err => $('#mentor-planet').html("não foi obtido o planeta."));
     //=============================================
-    if(planet == "unknown"){
-        $('#mentor-planet').html("desconhecido.")
-    }
-    else{
-        $('#mentor-planet').html(planet)
-    }
 })

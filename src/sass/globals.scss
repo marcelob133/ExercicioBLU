@@ -100,3 +100,9 @@ section{
         width: auto;
     }
 }
+@media (max-width: 768px){
+    section h1{
+        font-size: 45px;
+        width: 230px;
+    }
+}
