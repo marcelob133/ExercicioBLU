@@ -13,14 +13,18 @@
 
 <body>
     <section class="container">
-        <h1 class="title--default">
-            Seu mentor selecionado foi: <span id="mentor-name"></span>
-        </h1>
-        <div class="choose-container">
-            <button class="button--choose--accept" id="btn-accept">Aceito</button>
-            <button class="button--choose--deny" id="btn-deny">Não aceito</button>
-            <button class="button--choose--deny" id="btn-back">Voltar</button>
-        </div>
+        <h1 class="title--default home__title">Star<br>Wars</h1>
+        <fieldset class="confirmation--field">
+            <legend>Escolha seu mentor</legend>
+            <h2 class="title--default">
+                O mentor selecionado foi:<br><span id="mentor-name"></span>
+            </h2>
+            <div class="choose-container">
+                <button class="button--choose--accept" id="btn-accept">Aceito</button>
+                <button class="button--choose--deny" id="btn-deny">Não aceito</button>
+                <button class="button--choose--return" id="btn-back">Mentor Anterior</button>
+            </div>
+        </fieldset>
     </section>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.4/fetch.js"></script>
     <script src="js/jquery.min.js"></script>

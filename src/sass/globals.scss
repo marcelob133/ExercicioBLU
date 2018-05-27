@@ -6,22 +6,39 @@
     font-family:"star_title"; 
     src:url("../fonts/starjedi/Starjhol.ttf")
 }
+
+//SASS VARIABLES===================
+$lower: lowercase;
+
 $lower: lowercase;
 @mixin starTitle {
     font-family: star_title, sans-serif;
     text-transform: $lower;
     letter-spacing: 2px;
 }
+@mixin starNormal($case){
+    @if ($case == "lowercase") {
+        font-family: star_font, sans-serif;
+        text-transform: $case;
+        letter-spacing: 2px;
+    } @else {
+        font-family: star_font, sans-serif;
+        letter-spacing: 2px;
+    }
+}
 
+//MODIFICATION IN ALL PAGES
 * {
     font-family: 'Space Mono', sans-serif;
 }
 
+//GENERAL MODIFICATIONS
 html { 
     height: 100%;
     width: 100%;
 }
 
+//BACKGROUND
 body{
     background-image: url(../images/stars.jpg); 
     background-position: left top;
@@ -30,17 +47,11 @@ body{
     background-attachment: fixed;
 }
 
+//ITENS DEFAULT CONFIGURATIONS
 input,
 textarea,
 button {
     box-sizing: border-box;
-}
-
-.container {
-    max-width: 992px;
-    margin: 0 auto;
-    display: block;
-    padding: 20px;
 }
 
 .input--default {
@@ -63,12 +74,12 @@ button {
 }
 
 //MAIN TOP CONTENT=================
-.index{
+section{
     display: flex;
     flex-direction: column;
     align-items: center;
     h1 {
-        @include starTitle;
+        @include starNormal("");
         letter-spacing: 4px;
         text-align: center;
         margin-top: 30px;

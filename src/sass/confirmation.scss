@@ -5,8 +5,14 @@
     color: #fff;
     font-weight: bold;
     font-size: 22px;
-    height: 10vh;
-    width: 100%;
+    height: 130px;
+    width: 130px;
+    border-radius: 50px;
+    box-shadow: inset 0px 0px 0px 5px rgba(0,0,0,0.75);
+}
+.choose-container button:hover {
+    background-color: grey;
+    transition: 2s;
 }
 
 .button--choose--accept {
@@ -19,7 +25,58 @@
     background-color: #d44545;
 }
 
+.button--choose--return{
+    @extend .button--choose;
+    background-color: rgb(255, 217, 0)
+}
+
 .choose-container {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: inherit;
+}
+
+.confirmation--field{
+    border-radius: 10px;
+    border: 5px solid yellow;
+    background-color: #fbfbfb2e;
+    box-shadow: 0px 0px 0px 5px #000000, 0px 0px 0px 10px yellow;
+    padding-bottom: 5px;
+    min-height: 350px;
+    
+    legend{
+        @include starNormal(lowercase);
+        color: black;
+        font-weight: bold;
+        font-size: 20px;
+        position: relative;
+        bottom: 5px;
+        padding: 10px;
+        background: white;
+        border-radius: 25px;
+        border: 5px solid yellow;
+        text-align: center;
+    }
+    h2{
+        @include starNormal(lowercase);
+        font-weight: normal;
+        text-align: center;
+        span{
+            @include starTitle;
+            font-weight: bold;
+            color:black;
+            background-color: white;
+            line-height: 50px;
+            padding: 0 10px 5px;
+            border-radius: 10px;
+        }
+    }
+}
+
+@media (max-width: 768px) {
+    .confirmation--field{
+        width: calc(80% - 10px);
+        margin-bottom: 30px;
+    }
 }

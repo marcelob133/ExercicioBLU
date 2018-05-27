@@ -32,7 +32,12 @@ $(function () {
     //===============================================
     //ACCEPTING MENTOR===============================
     $('#btn-accept').on('click', function () {
-        window.location = 'inscrito.html'
+        if($('#mentor-name').html() != "tente novamente"){
+            window.location = 'inscrito.html';
+        }
+        else{
+            window.location = 'confirmacao.html';
+        }
     })
     //===============================================
     //DENYING MENTOR=================================
@@ -83,6 +88,7 @@ $(function () {
         if (data.length > 0) {
             var getName = lastStack.name;
             var getHome = lastStack.homeworld;
+            var getGender = lastStack.gender;
 
             data.splice(index, 1)
             stackResponse = lastStack

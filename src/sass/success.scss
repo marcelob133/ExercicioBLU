@@ -1,3 +1,23 @@
+//SASS VARIABLES===================
+$lower: lowercase;
+
+$lower: lowercase;
+@mixin starTitle {
+    font-family: star_title, sans-serif;
+    text-transform: $lower;
+    letter-spacing: 2px;
+}
+@mixin starNormal($case){
+    @if ($case == "lowercase") {
+        font-family: star_font, sans-serif;
+        text-transform: $case;
+        letter-spacing: 2px;
+    } @else {
+        font-family: star_font, sans-serif;
+        letter-spacing: 2px;
+    }
+}
+
 .success__title {
     text-align: center;
 }
@@ -12,5 +32,30 @@
     color: #fff;
     text-align: center;
     font-size: 20px;
-    margin-top: 40px;
+}
+main{
+    h2, p, span{
+        @include starNormal(lowercase);
+        b{
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        span{
+            color: tomato;
+            font-size: 40px;
+        }
+        span:last-child{
+            color: red;
+        }
+    }
+    p{
+        width: 550px;
+    }
+    h2{
+        margin-top: 0;
+    }
+    img{    
+        height: 225px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 0px 5px black, 0px 0px 0px 10px white;
+    }
 }
