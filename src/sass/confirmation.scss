@@ -1,4 +1,6 @@
 @import "globals";
+
+//CONFIRMATION.HTML SASS=============
 .button--choose {
     @extend .button;
     margin: 0;
@@ -73,7 +75,7 @@
         }
     }
 }
-
+//==================================
 @media (max-width: 768px) {
     .confirmation--field{
         width: calc(80% - 10px);

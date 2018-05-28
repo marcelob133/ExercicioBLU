@@ -1,6 +1,6 @@
 $(function () {
     //CLEAN MENTOR HISTORY===========================
-    sessionStorage.removeItem('mentorNameStack')
+    sessionStorage.removeItem('mentorNameStack');
     //===============================================
     //MAIN VARIABLES ENTRANCE========================
     const mentorName = 'carregando...';
@@ -10,16 +10,15 @@ $(function () {
     var userAge = window.sessionStorage.getItem("age");
     var userEmail = window.sessionStorage.getItem("email");
 
-    $('#mentor-name').html(mentorName)
+    $('#mentor-name').html(mentorName);
     var mentor = Math.floor(Math.random() * 90) + 1;
     var mentorUrl = url + mentor + '/';
-    var stackResponse = null
+    var stackResponse = null;
     //===============================================
     //GETTING DATA FROM API==========================
     fetch(mentorUrl)
     .then((resp) => resp.json())
         .then(function(response) {
-            console.log(response);
             stackResponse = response;
             window.sessionStorage.setItem("mentorName",response.name);
             window.sessionStorage.setItem("mentorPlanet",response.homeworld);
@@ -63,7 +62,6 @@ $(function () {
         .then((resp) => resp.ok ? resp.json() : $('#mentor-name').html("tente novamente"))
             .then((response) => {
                 $('#btn-back').show("slow");
-                console.log(response);
                 stackResponse = response;
                 window.sessionStorage.setItem("mentorName",response.name);
                 window.sessionStorage.setItem("mentorPlanet",response.homeworld);
@@ -75,23 +73,23 @@ $(function () {
     })
 
     if (!sessionStorage.mentorNameStack) {
-        $('#btn-back').hide()
+        $('#btn-back').hide();
     }
     //===============================================
     //GETTING LAST MENTOR============================
     $('#btn-back').on('click', function () {
         var dataString = window.sessionStorage.mentorNameStack;
-        var data = JSON.parse(dataString)
-        var index = (data.length - 1) === -1 ? 0 : data.length - 1
-        var lastStack = data[index]
+        var data = JSON.parse(dataString);
+        var index = (data.length - 1) === -1 ? 0 : data.length - 1;
+        var lastStack = data[index];
         
         if (data.length > 0) {
             var getName = lastStack.name;
             var getHome = lastStack.homeworld;
             var getGender = lastStack.gender;
 
-            data.splice(index, 1)
-            stackResponse = lastStack
+            data.splice(index, 1);
+            stackResponse = lastStack;
 
             window.sessionStorage.setItem("mentorName",getName);
             window.sessionStorage.setItem("mentorPlanet",getHome);
@@ -99,8 +97,7 @@ $(function () {
 
             $('#mentor-name').html(getName);
 
-            data.length === 0 ? $(this).hide() : null
-
+            data.length === 0 ? $(this).hide() : null;
         }
     })
     //===============================================

@@ -18,56 +18,62 @@ $lower: lowercase;
     }
 }
 //==================================
-.success__title {
-    text-align: center;
+//INSCRITO.HTML SASS================
+.confirmation-container{
+    .success__title {
+        text-align: center;
+    }
+    
+    .success-img {
+        max-width: 100%;
+        margin: 20px auto;
+        display: block;
+    }
+    
+    .success__description {
+        color: #fff;
+        text-align: center;
+        font-size: 20px;
+    }
+    main{
+        h2, p, span{
+            @include starNormal(lowercase);
+            b{
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            span{
+                color: tomato;
+                font-size: 40px;
+            }
+            span:last-child{
+                color: red;
+            }
+        }
+        p{
+            width: 550px;
+        }
+        h2{
+            margin-top: 0;
+        }
+        img{    
+            height: 225px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 0px 5px black, 0px 0px 0px 10px white;
+        }
+    }
 }
-
-.success-img {
-    max-width: 100%;
-    margin: 20px auto;
-    display: block;
-}
-
-.success__description {
-    color: #fff;
-    text-align: center;
-    font-size: 20px;
-}
-main{
-    h2, p, span{
-        @include starNormal(lowercase);
-        b{
-            font-family: Arial, Helvetica, sans-serif;
+//==================================
+@media (max-width: 768px) {
+    .confirmation-container{
+        img{
+            height: 150px !important; 
+        }
+        p{
+            width: 300px !important;
+            margin: 0 auto !important;  
         }
         span{
-            color: tomato;
-            font-size: 40px;
+            font-size: 35px !important;
         }
-        span:last-child{
-            color: red;
-        }
-    }
-    p{
-        width: 550px;
-    }
-    h2{
-        margin-top: 0;
-    }
-    img{    
-        height: 225px;
-        border-radius: 50%;
-        box-shadow: 0px 0px 0px 5px black, 0px 0px 0px 10px white;
-    }
-}
-@media (max-width: 768px) {
-    img{
-        height: 150px !important; 
-    }
-    p{
-        width: 300px !important;
-        margin: 0 auto !important;  
-    }
-    span{
-        font-size: 35px !important;
     }
 }
